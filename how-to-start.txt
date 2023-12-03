@@ -9,10 +9,9 @@ repo > settings > code > copy ssh
 
 
 in git bash: 
-git clone git@github.com:AgaHrmn/webapp-group-project.git
+git clone git@github.com:AgaHrmn/webapp-group-project.git << copied repo ssh - to add this repostitory to your device
 
-
-git checkout -b <your new branch> >praca na pliku tip
+git checkout -b <your new branch> > modify project/ work etc
 git add --all
 git commit -m "your comment"
-<< click output url >>
+<< click output url -> push >>
