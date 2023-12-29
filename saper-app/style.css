@@ -1,16 +1,91 @@
-/* board */
+body {
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+}
 
-/* square */
+hr {
+    border: 0;
+    height: 10px;
+    background: linear-gradient(to right, #0074cc, transparent, #ff8c00);
+    margin: 20px 0;
+}
 
-/* bomb */
+#board {
+    background-color: lightgrey;
+    width: 400px;
+    height: 400px;
+    border: 10px solid lightslategray;
 
-/* flag */
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
 
-/* score */
+}
 
+#board div {
+    width: 48px;
+    height: 48px;
+    border: 1px solid whitesmoke;
+
+    /* text */
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+
+}
+
+.tile_clicked {
+    background: lightslategray;
+}
+
+
+/* kolory numerówoznaczających ilość bomb sąsiadujących z polem */
+.x1 {
+    color: blue;
+}
+
+.x2 {
+    color: green;
+}
+
+.x3 {
+    color: red;
+}
+
+.x4 {
+    color: yellow;
+}
+
+.x5 {
+    color: violet;
+}
+
+.x6 {
+    color: turquoise;
+}
+
+.x7 {
+    color: indigo;
+}
+
+.x8 {
+    color: purple;
+}
+
+#flag {
+    width: 100px;
+    height: 50px;
+    font-size: 25px;
+    background-color: lightgray;
+    border: 5px solid lightslategray;
+}
 
 
 /*
 Bomb: 💣
 Flag: 🚩
+Lost game: 💥💀💥
+
 */
