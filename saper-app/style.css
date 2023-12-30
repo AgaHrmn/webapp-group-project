@@ -36,12 +36,11 @@ hr {
 
 }
 
-.tile_clicked {
-    background: lightslategray;
+.square_clicked {
+    background-color: lightslategray;
 }
 
-
-/* kolory numerówoznaczających ilość bomb sąsiadujących z polem */
+/* kolory numerów oznaczających ilość bomb sąsiadujących z polem */
 .x1 {
     color: blue;
 }
