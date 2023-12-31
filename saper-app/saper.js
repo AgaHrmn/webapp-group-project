@@ -1,5 +1,4 @@
 // variables / zmienne 
-
 var board = [];
 var rows = 8;
 var columns = 8;
@@ -7,14 +6,13 @@ var bombs_left = 5;
 var bombs_location = [];
 var squares_clicked = 0;
 var is_flagged = false;
-// var game_over = false;
 
 
 window.onload = function () {
     startGame();
 }
 
-// function to add board / dodanie planszy (10x10)
+// function to add board / dodanie planszy
 function startGame() {
     document.getElementById("bombs_left").innerText = "(☞ ͡° ͜ʖ ͡°)☞" + bombs_left + "💣";
     document.getElementById("flag_butt").addEventListener("click", putFlag);
@@ -60,11 +58,6 @@ function clickSquare() {
     if (gameOver(square) || this.classList.contains("square_clicked")) {
         return;
     }
-    // if (gameOver(square)) {
-    //     return;
-    // } else {
-    //     console.log("clicked " + square.id)
-    // }
 
     let squareCoordinates = square.id.split("-");
     let r = parseInt(squareCoordinates[0]);
@@ -122,6 +115,7 @@ function showNeighboringBombs(r, c) {
     if (bombs_found > 0) {
         board[r][c].innerText = bombs_found;
         board[r][c].classList.add("x" + bombs_found.toString())
+        
     } else {
         for (let i = r - 1; i <= r + 1; i++) {
             for (let j = c - 1; j <= c + 1; j++) {
@@ -150,6 +144,9 @@ function gameOver(s) {
 
     if (squares_clicked == rows * columns - bombs_left) {
         document.getElementById("bombs_left").innerText = "(੭˃ᴗ˂)੭";
+        if (!bombs_location.includes(r.toString() + "-" + c.toString())) {
+            s.style.backgroundColor = "green"
+        }
         playAgain();
         return true;
     }
