@@ -6,6 +6,7 @@ var bombs_left = 5;
 var bombs_location = [];
 var squares_clicked = 0;
 var is_flagged = false;
+var game_over_flag = false;
 
 
 window.onload = function () {
@@ -44,6 +45,10 @@ function putFlag() {
 
 // function to make square clickable / dodanie funkcjonalności przycisku do pól planszy
 function clickSquare() {
+    if (game_over_flag || this.classList.contains("square_clicked")) {
+        return;
+    }
+
     let square = this;
 
     if (is_flagged) {
@@ -54,10 +59,10 @@ function clickSquare() {
         }
         return;
     }
-
-    if (gameOver(square) || this.classList.contains("square_clicked")) {
+    if (gameOver(square)) {
+        playAgain();
         return;
-    }
+    };
 
     let squareCoordinates = square.id.split("-");
     let r = parseInt(squareCoordinates[0]);
@@ -141,18 +146,20 @@ function resetGame() {
 }
 
 function gameOver(s) {
-
+    if (bombs_location.includes(s.id) && s.innerText == "") {
+        game_over_flag = true;
+        showBombs();
+        return true;
+    }
     if (squares_clicked == rows * columns - bombs_left) {
         document.getElementById("bombs_left").innerText = "(੭˃ᴗ˂)੭";
         if (!bombs_location.includes(s.id)) {
             s.style.backgroundColor = "lightslategray"
         }
+        game_over_flag = true;
         return true;
     }
-    if (bombs_location.includes(s.id) && s.innerText == "") {
-        showBombs();
-        return true;
-    } 
+    game_over_flag = false;
     return false;
 }
 
