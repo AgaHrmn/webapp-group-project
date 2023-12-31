@@ -7,7 +7,7 @@ var bombs_left = 5;
 var bombs_location = [];
 var squares_clicked = 0;
 var is_flagged = false;
-var game_over = false;
+// var game_over = false;
 
 
 window.onload = function () {
@@ -31,7 +31,6 @@ function startGame() {
         }
         board.push(row);
     }
-    console.log(board);
 }
 
 // function to trigger flag placement / funkcja do pzycisku flagi (rozmieszczanie na planszy)
@@ -47,11 +46,8 @@ function putFlag() {
 
 // function to make square clickable / dodanie funkcjonalności przycisku do pól planszy
 function clickSquare() {
-    if (game_over || this.classList.contains("square_clicked")) {
-        return;
-    }
-
     let square = this;
+
     if (is_flagged) {
         if (square.innerText == "") {
             square.innerText = "🚩";
@@ -60,13 +56,15 @@ function clickSquare() {
         }
         return;
     }
-    if (bombs_location.includes(square.id)) {
-        game_over = true;
-        showBombs();
+
+    if (gameOver(square) || this.classList.contains("square_clicked")) {
         return;
-    } else {
-        console.log("clicked " + square.id)
     }
+    // if (gameOver(square)) {
+    //     return;
+    // } else {
+    //     console.log("clicked " + square.id)
+    // }
 
     let squareCoordinates = square.id.split("-");
     let r = parseInt(squareCoordinates[0]);
@@ -115,36 +113,21 @@ function showNeighboringBombs(r, c) {
 
     let bombs_found = 0;
 
-    bombs_found += checkSquare(r - 1, c - 1);
-    bombs_found += checkSquare(r - 1, c);
-    bombs_found += checkSquare(r - 1, c + 1);
-
-    bombs_found += checkSquare(r, c - 1);
-    bombs_found += checkSquare(r, c + 1);
-
-    bombs_found += checkSquare(r + 1, c - 1);
-    bombs_found += checkSquare(r + 1, c);
-    bombs_found += checkSquare(r + 1, c + 1);
+    for (let i = r - 1; i <= r + 1; i++) {
+        for (let j = c - 1; j <= c + 1; j++) {
+            bombs_found += checkSquare(i, j);
+        }
+    }
 
     if (bombs_found > 0) {
         board[r][c].innerText = bombs_found;
         board[r][c].classList.add("x" + bombs_found.toString())
     } else {
-        showNeighboringBombs(r - 1, c - 1);
-        showNeighboringBombs(r - 1, c);
-        showNeighboringBombs(r - 1, c + 1);
-
-        showNeighboringBombs(r, c - 1);
-        showNeighboringBombs(r, c + 1);
-
-        showNeighboringBombs(r + 1, c - 1);
-        showNeighboringBombs(r + 1, c);
-        showNeighboringBombs(r + 1, c + 1);
-    }
-
-    if (squares_clicked == rows * columns - bombs_left) {
-        document.getElementById("bombs_left").innerText = "(੭˃ᴗ˂)੭";
-        
+        for (let i = r - 1; i <= r + 1; i++) {
+            for (let j = c - 1; j <= c + 1; j++) {
+                showNeighboringBombs(i, j);
+            }
+        }
     }
 }
 
@@ -157,4 +140,32 @@ function checkSquare(r, c) {
         return 1;
     }
     return 0;
+}
+
+function resetGame() {
+    location.reload();
+}
+
+function gameOver(s) {
+
+    if (squares_clicked == rows * columns - bombs_left) {
+        document.getElementById("bombs_left").innerText = "(੭˃ᴗ˂)੭";
+        playAgain();
+        return true;
+    }
+    if (bombs_location.includes(s.id) && s.innerText == "") {
+        showBombs();
+        playAgain();
+        return true;
+    } 
+    return false;
+}
+
+function playAgain() {
+    let brake_line = document.createElement("br")
+    let play_again_butt = document.createElement("button");
+    play_again_butt.textContent = "Wanna play again?";
+    document.body.appendChild(brake_line);
+    document.body.appendChild(play_again_butt);
+    play_again_butt.addEventListener("click", resetGame);
 }

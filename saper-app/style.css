@@ -58,24 +58,21 @@ hr {
 }
 
 .x5 {
-    color: violet;
-}
-
-.x6 {
-    color: turquoise;
-}
-
-.x7 {
     color: indigo;
 }
 
-.x8 {
-    color: purple;
-}
+button {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    display: flex;
+    min-width: 150px;
+    min-height: 50px;
+    justify-content: center;
+    align-items: center;
 
-#flag-butt {
-    width: 100px;
-    height: 50px;
+    margin: 0 auto;
+    display: block;
+
     font-size: 25px;
     background-color: lightgray;
     border: 5px solid lightslategray;
@@ -85,6 +82,4 @@ hr {
 /*
 Bomb: 💣
 Flag: 🚩
-Lost game: 💥💀💥
-
 */
