@@ -144,15 +144,13 @@ function gameOver(s) {
 
     if (squares_clicked == rows * columns - bombs_left) {
         document.getElementById("bombs_left").innerText = "(੭˃ᴗ˂)੭";
-        if (!bombs_location.includes(r.toString() + "-" + c.toString())) {
-            s.style.backgroundColor = "green"
+        if (!bombs_location.includes(s.id)) {
+            s.style.backgroundColor = "lightslategray"
         }
-        playAgain();
         return true;
     }
     if (bombs_location.includes(s.id) && s.innerText == "") {
         showBombs();
-        playAgain();
         return true;
     } 
     return false;
@@ -161,7 +159,7 @@ function gameOver(s) {
 function playAgain() {
     let brake_line = document.createElement("br")
     let play_again_butt = document.createElement("button");
-    play_again_butt.textContent = "Wanna play again?";
+    play_again_butt.textContent = "Play again?";
     document.body.appendChild(brake_line);
     document.body.appendChild(play_again_butt);
     play_again_butt.addEventListener("click", resetGame);
