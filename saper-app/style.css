@@ -33,11 +33,13 @@ hr {
     justify-content: center;
     align-items: center;
     font-weight: bold;
-
+    cursor: pointer;
 }
 
 .square_clicked {
     background-color: lightslategray;
+    cursor: default !important;
+    box-shadow: inset 3px 3px 3px 0px #5d5d5d;
 }
 
 /* kolory numerów oznaczających ilość bomb sąsiadujących z polem */

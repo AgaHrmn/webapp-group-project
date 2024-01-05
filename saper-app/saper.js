@@ -16,7 +16,6 @@ window.onload = function () {
 // function to add board / dodanie planszy
 function startGame() {
     document.getElementById("bombs_left").innerText = "(☞ ͡° ͜ʖ ͡°)☞" + bombs_left + "💣";
-    document.getElementById("flag_butt").addEventListener("click", putFlag);
     generateCoordinates();
 
     for (let i = 0; i < rows; i++) {
@@ -25,6 +24,7 @@ function startGame() {
             let square = document.createElement("div");
             square.id = i.toString() + "-" + v.toString();
             square.addEventListener("click", clickSquare);
+            square.addEventListener("contextmenu", putFlag);
             document.getElementById("board").append(square);
             row.push(square);
         }
@@ -33,13 +33,13 @@ function startGame() {
 }
 
 // function to trigger flag placement / funkcja do pzycisku flagi (rozmieszczanie na planszy)
-function putFlag() {
-    if (is_flagged) {
-        is_flagged = false;
-        document.getElementById("flag_butt").style.backgroundColor = "lightgray";
-    } else {
-        is_flagged = true;
-        document.getElementById("flag_butt").style.backgroundColor = "darkgray";
+function putFlag(event) {
+    event.preventDefault();
+    let square = this;
+    if (square.innerText == "") {
+        square.innerText = "🚩";
+    } else if (square.innerText == "🚩") {
+        square.innerText = "";
     }
 }
 
