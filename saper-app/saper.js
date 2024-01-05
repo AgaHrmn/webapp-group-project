@@ -78,6 +78,7 @@ function generateCoordinates() {
         let coordinate = r.toString() + "-" + c.toString();
         if (!bombs_location.includes(coordinate)) {
             bombs_location.push(coordinate)
+
         }
     } while (bombs_location.length < bombs_left);
     squares_clicked += 1;
@@ -90,13 +91,13 @@ function showBombs() {
         for (let c = 0; c < columns; c++) {
             let square = board[r][c];
             if (bombs_location.includes(square.id)) {
-                square.innerText = "💣";
+                square.style.backgroundImage = "url('assets/bomb.png')";
                 square.style.backgroundColor = "red";
+                square.innerText = ""; // Opcjonalnie, aby usunąć tekst
             }
         }
     }
 }
-
 // function to show neighboring bombs / sprawdz sąsiadujące pola (czy mają bomby)
 function showNeighboringBombs(r, c) {
     if (r < 0 || r >= rows || c < 0 || c >= columns) {

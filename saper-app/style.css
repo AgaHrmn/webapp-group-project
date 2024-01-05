@@ -1,44 +1,83 @@
 body {
     font-family: 'Roboto Mono', monospace;
     text-align: center;
+    background-image: url('assets/tlo3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0; /* Zresetuj domyślne marginesy */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Wysokość 100% widoku (viewport height) */
 }
 
-hr {
+
+/* hr {
     border: 0;
     height: 10px;
     background: linear-gradient(to right, #0074cc, transparent, #ff8c00);
     margin: 20px 0;
-}
+} */
 
 #board {
-    background-color: lightgrey;
-    width: 398px;
+    /* background-color: rgb(104, 104, 216); */
+    width: 400px;  /* Dodałem 2 piksele, aby pomieścić obramowanie */
     height: 400px;
     border: 10px solid lightslategray;
+    box-sizing: border-box;  /* Dodane, aby szerokość i wysokość uwzględniały również obramowanie */
 
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-
+    display: grid;  /* Zmienione z flex-wrap na grid */
+    grid-template-columns: repeat(8, 1fr);  /* Ustalamy 8 kolumn o jednakowej szerokości */
+    gap: 6px;  /* Zwiększyłem odstępy między kwadratami */
 }
 
+
+
 #board div {
-    width: 48px;
-    height: 48px;
+    width: 40px;  
+    height: 40px;  
     border: 1px solid whitesmoke;
 
     /* text */
-    font-size: 30px;
+    font-size: 18px;  /* Zmniejszyłem font-size, aby zmieścić się w kwadracie */
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
 
+    /* Dodane */
+    background-image: url('assets/unchecked.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#board div.square_clicked {
+    background-color: lightslategray;
+    background-image: url('assets/checked.png');  /* Zmienione tło dla odkrytych pól */
 }
 
 .square_clicked {
-    background-color: lightslategray;
+    /* background-color: lightslategray; */
+    background-image: url('assets/checked.png');  /* Dodane tło dla odkrytych pól */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
+
+#board div.bomb {
+    background-image: url('assets/bomb.png');
+}
+
+
+.x1, .x2, .x3, .x4, .x5 {
+    font-size: 16px;
+    font-family: 'Jazz LET', fantasy; /* Dodana czcionka i styl */
+}
+
 
 /* kolory numerów oznaczających ilość bomb sąsiadujących z polem */
 .x1 {
@@ -77,9 +116,3 @@ button {
     background-color: lightgray;
     border: 5px solid lightslategray;
 }
-
-
-/*
-Bomb: 💣
-Flag: 🚩
-*/
