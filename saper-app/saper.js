@@ -1,12 +1,12 @@
 // variables / zmienne 
-var board = [];
-var rows = 8;
-var columns = 8;
-var bombs_left = 5;
-var bombs_location = [];
-var squares_clicked = 0;
-var is_flagged = false;
-var game_over_flag = false;
+const board = [];
+const rows = 8;
+const columns = 8;
+const bombs_left = 5;
+const bombs_location = [];
+let squares_clicked = 0;
+const is_flagged = false;
+let game_over_flag = false;
 
 
 window.onload = function () {
