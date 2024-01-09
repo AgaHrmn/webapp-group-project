@@ -36,6 +36,9 @@ function startGame() {
 function putFlag(event) {
     event.preventDefault();
     let square = this;
+    if (game_over_flag || this.classList.contains("square_clicked")) {
+        return;
+    }
     if (square.innerText == "") {
         square.innerText = "🚩";
     } else if (square.innerText == "🚩") {
@@ -166,8 +169,13 @@ function gameOver(s) {
 function playAgain() {
     let brake_line = document.createElement("br")
     let play_again_butt = document.createElement("button");
-    play_again_butt.textContent = "Play again?";
-    document.body.appendChild(brake_line);
-    document.body.appendChild(play_again_butt);
+    play_again_butt.textContent = "Jeszcze raz?";
+
+    let firstChild = document.body.firstChild;
+
+    // Insert the button and line break before the first child
+    document.body.insertBefore(brake_line, firstChild);
+    document.body.insertBefore(play_again_butt, firstChild);
+
     play_again_butt.addEventListener("click", resetGame);
 }
