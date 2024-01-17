@@ -1,4 +1,8 @@
 // variables / zmienne 
+
+//komentarz Agaty xD
+
+
 const board = [];
 const rows = 8;
 const columns = 8;
