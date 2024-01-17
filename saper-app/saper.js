@@ -1,3 +1,5 @@
+//karolina
+
 // variables / zmienne 
 const board = [];
 const rows = 8;
