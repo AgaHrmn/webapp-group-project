@@ -1,4 +1,5 @@
 //karolina
+//test
 
 // variables / zmienne 
 const board = [];
