@@ -23,6 +23,11 @@ hr {
     flex-wrap: wrap;
 
 }
+#screen {
+    background: repeating-linear-gradient(45deg, #ac4f4f, #3498db 10px, #456483 10px, #2c3e50 20px); /* Powtarzający się gradient kolorów */
+    color: #fff;
+   
+}
 
 #board div {
     box-shadow: inset 1px 1px 1px 1px #5d5d5d;
