@@ -1,0 +1,95 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+}
+
+hr {
+  background: linear-gradient(to bottom, #96b6cc, #314b5c); /* Gradient tła */
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+}
+
+#board {
+    background-color: lightgrey;
+    width: 400px;
+    height: 400px;
+    border: 10px solid lightslategray;
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+#screen {
+    background: repeating-linear-gradient(45deg, #ac4f4f, #3498db 10px, #456483 10px, #2c3e50 20px); /* Powtarzający się gradient kolorów */
+    color: #fff;
+   
+}
+
+#board div {
+    box-shadow: inset 1px 1px 1px 1px #5d5d5d;
+    width: 48px;
+    height: 48px;
+    border: 1px solid whitesmoke;
+
+    /* text */
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.square_clicked {
+    background-color: lightslategray;
+    cursor: default !important;
+    box-shadow: inset 3px 3px 3px 0px #5d5d5d;
+}
+
+/* kolory numerów oznaczających ilość bomb sąsiadujących z polem */
+.x1 {
+    color: blue;
+}
+
+.x2 {
+    color: green;
+}
+
+.x3 {
+    color: red;
+}
+
+.x4 {
+    color: yellow;
+}
+
+.x5 {
+    color: indigo;
+}
+
+button {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    display: flex;
+    min-width: 150px;
+    min-height: 50px;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto;
+    display: block;
+
+    font-size: 25px;
+    background-color: lightgray;
+    border: 5px solid lightslategray;
+}
+
+
+/*
+Bomb: 💣
+Flag: 🚩
+*/
