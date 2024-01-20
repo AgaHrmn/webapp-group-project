@@ -1,3 +1,6 @@
+//karolina
+//test
+
 // variables / zmienne 
 
 //komentarz Agaty xD
