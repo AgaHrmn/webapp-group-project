@@ -1,11 +1,4 @@
-//karolina
-//test
-
-// variables / zmienne 
-
-//komentarz Agaty xD
-
-
+// variables / zmienne
 const board = [];
 const rows = 8;
 const columns = 8;
@@ -14,7 +7,6 @@ const bombs_location = [];
 let squares_clicked = 0;
 const is_flagged = false;
 let game_over_flag = false;
-
 
 window.onload = function () {
     startGame();
@@ -37,6 +29,15 @@ function startGame() {
         }
         board.push(row);
     }
+}
+function playExplosionSound() {
+    const explosionSound = document.getElementById("explosionSound");
+    explosionSound.play();
+}
+
+function showExplosionGif() {
+    const explosionGif = document.getElementById("explosionGif");
+    explosionGif.style.display = "block";
 }
 
 // function to trigger flag placement / funkcja do pzycisku flagi (rozmieszczanie na planszy)
@@ -80,7 +81,7 @@ function clickSquare() {
     showNeighboringBombs(r, c);
 }
 
-// function to generate random coordinates / wygeneruj koordynanty dla bomb 
+// function to generate random coordinates / wygeneruj koordynanty dla bomb
 function generateCoordinates() {
     do {
         let r = Math.floor(Math.random() * bombs_left);
@@ -130,7 +131,7 @@ function showNeighboringBombs(r, c) {
     if (bombs_found > 0) {
         board[r][c].innerText = bombs_found;
         board[r][c].classList.add("x" + bombs_found.toString())
-        
+
     } else {
         for (let i = r - 1; i <= r + 1; i++) {
             for (let j = c - 1; j <= c + 1; j++) {
@@ -151,14 +152,12 @@ function checkSquare(r, c) {
     return 0;
 }
 
-function resetGame() {
-    location.reload();
-}
-
 function gameOver(s) {
     if (bombs_location.includes(s.id) && s.innerText == "") {
         game_over_flag = true;
         showBombs();
+        playExplosionSound();
+        showExplosionGif();
         return true;
     }
     if (squares_clicked == rows * columns - bombs_left) {
@@ -172,6 +171,11 @@ function gameOver(s) {
     game_over_flag = false;
     return false;
 }
+
+function resetGame() {
+    location.reload();
+}
+
 
 function playAgain() {
     let brake_line = document.createElement("br")
