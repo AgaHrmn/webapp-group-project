@@ -1,8 +1,9 @@
 // variables / zmienne
+const level = 1;
 const board = [];
 const rows = 8;
 const columns = 8;
-const bombs_left = 5;
+const bombs_left = 2;
 const bombs_location = [];
 let squares_clicked = 0;
 const is_flagged = false;
@@ -30,10 +31,12 @@ function startGame() {
         board.push(row);
     }
 }
-function playExplosionSound() {
-    const explosionSound = document.getElementById("explosionSound");
-    explosionSound.play();
-}
+
+
+// function playExplosionSound() {
+//     const explosionSound = document.getElementById("explosionSound");
+//     explosionSound.play();
+// }
 
 function showExplosionGif() {
     const explosionGif = document.getElementById("explosionGif");
@@ -154,10 +157,10 @@ function checkSquare(r, c) {
 
 function gameOver(s) {
     if (bombs_location.includes(s.id) && s.innerText == "") {
-        game_over_flag = true;
         showBombs();
-        playExplosionSound();
+        // playExplosionSound();
         showExplosionGif();
+        game_over_flag = true;
         return true;
     }
     if (squares_clicked == rows * columns - bombs_left) {
@@ -175,7 +178,6 @@ function gameOver(s) {
 function resetGame() {
     location.reload();
 }
-
 
 function playAgain() {
     let brake_line = document.createElement("br")

@@ -8,11 +8,10 @@ body {
     text-align: center;
 }
 
-hr {
-    border: 0;
-    height: 10px;
-    background: linear-gradient(to right, #0074cc, transparent, #ff8c00);
-    margin: 20px 0;
+h1 {
+    color: black;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 
 #board {
