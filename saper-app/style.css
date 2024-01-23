@@ -4,15 +4,15 @@ body {
     background-image: url('Mine_Sweeper_(8717665855).jpg');
     background-size: cover;
     background-position: center;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Black Ops One', system-ui;
     text-align: center;
 }
 
-hr {
-    border: 0;
-    height: 10px;
-    background: linear-gradient(to right, #0074cc, transparent, #ff8c00);
-    margin: 20px 0;
+h1 {
+    color: black;
+    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+    padding: 0 10px;
+    margin-bottom: 10px;
 }
 
 #board {
@@ -69,8 +69,7 @@ hr {
 }
 
 button {
-    font-family: 'Roboto Mono', monospace;
-    font-weight: bold;
+    font-family: 'Black Ops One', system-ui;
     display: flex;
     min-width: 150px;
     min-height: 50px;
