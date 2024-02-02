@@ -36,6 +36,8 @@ function startGame() {
         }
         board.push(row);
     }
+    // Dodaj klasę do body, aby dynamicznie ustawić tło w zależności od poziomu trudności
+    document.body.className = `level-${level + 1}`;
 }
 
 // function playExplosionSound() {
