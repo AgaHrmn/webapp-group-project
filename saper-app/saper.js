@@ -260,3 +260,34 @@ function gameWon() {
     return false;
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Dodaj nasłuchiwanie na kliknięcie przycisku "Obejrzyj filmik"
+    document.getElementById("watchVideoBtn").addEventListener("click", showVideo);
+    // Dodaj nasłuchiwanie na kliknięcie overlaya, aby ukryć filmik
+    document.getElementById("overlay").addEventListener("click", hideVideo);
+});
+
+// Dodaj funkcję pokazującą video i overlay
+function showVideo() {
+    const existingVideo = document.getElementById("existingVideo");
+    const overlay = document.getElementById("overlay");
+
+    if (existingVideo && overlay) {
+        existingVideo.style.display = "block";
+        overlay.style.display = "block";
+    } else {
+        console.error("Brak istniejącego filmu lub overlaya do wyświetlenia.");
+    }
+}
+
+// Dodaj funkcję ukrywającą video i overlay
+function hideVideo() {
+    const existingVideo = document.getElementById("existingVideo");
+    const overlay = document.getElementById("overlay");
+
+    if (existingVideo && overlay) {
+        existingVideo.style.display = "none";
+        overlay.style.display = "none";
+    }
+}
+
