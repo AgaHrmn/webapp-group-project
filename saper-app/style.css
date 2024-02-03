@@ -1,11 +1,17 @@
+html {
+    height: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
-    background-image: url('Mine_Sweeper_(8717665855).jpg');
-    background-size: cover;
-    background-position: center;
     font-family: 'Black Ops One', system-ui;
     text-align: center;
+    height: 100%; /* Dodajmy również wysokość dla body */
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden; /* Zapobiegnie scrollowaniu przy małych ekranach */
 }
 
 h1 {
