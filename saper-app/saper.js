@@ -2,8 +2,8 @@
 
 const levelsList = [
     { rows: 8, columns: 8, bombs: 5 },
-    { rows: 10, columns: 10, bombs: 9 },
-    { rows: 12, columns: 12, bombs: 14 }
+    { rows: 10, columns: 10, bombs: 8 },
+    { rows: 12, columns: 12, bombs: 12 }
 ];
 let level = 0;
 let nextLvlButtonGenerated = false;
@@ -92,7 +92,7 @@ function clickSquare() {
             let nextLvl_butt = document.getElementById("nextLvl_butt");
             nextLvl_butt.removeEventListener("click", lvlUp);
             nextLvl_butt.textContent = "( ͡° ͜ʖ ͡°)"
-            document.getElementById("bombs_left").innerText = "Congratulations! You've won the game!";
+            document.getElementById("bombs_left").innerText = "GG WP!";
         } else {
             nextLvl();
         }
