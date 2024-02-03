@@ -46,10 +46,10 @@ function startGame() {
     document.body.className = `level-${level + 1}`;
 }
 
-// function playExplosionSound() {
-//     const explosionSound = document.getElementById("explosionSound");
-//     explosionSound.play();
-// }
+function playExplosionSound() {
+    const explosionSound = document.getElementById("explosionSound");
+    explosionSound.play();
+}
 
 function showExplosionGif() {
     const explosionGif = document.getElementById("explosionGif");
@@ -181,6 +181,7 @@ function gameOver(s) {
         showBombs();
         // playExplosionSound();
         showExplosionGif();
+        playExplosionSound()
         game_over_flag = true;
         return true;
     }
