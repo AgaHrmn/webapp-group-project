@@ -2,8 +2,8 @@
 
 const levelsList = [
     { rows: 8, columns: 8, bombs: 5 },
-    { rows: 8, columns: 8, bombs: 7 },
-    { rows: 8, columns: 8, bombs: 9 }
+    { rows: 10, columns: 10, bombs: 9 },
+    { rows: 12, columns: 12, bombs: 14 }
 ];
 let level = 0;
 let nextLvlButtonGenerated = false;
@@ -24,6 +24,9 @@ function startGame() {
     document.getElementById("bombs_left").innerText = "( ͡° ͜ʖ ͡°)☞" + levelsList[level].bombs + "💣";
     generateCoordinates();
 
+    const rows = levelsList[level].rows;
+    const columns = levelsList[level].columns;
+
     for (let i = 0; i < levelsList[level].rows; i++) {
         let row = [];
         for (let v = 0; v < levelsList[level].columns; v++) {
@@ -36,6 +39,9 @@ function startGame() {
         }
         board.push(row);
     }
+
+    document.documentElement.style.setProperty('--rows', rows);
+    document.documentElement.style.setProperty('--columns', columns);
     // Dodaj klasę do body, aby dynamicznie ustawić tło w zależności od poziomu trudności
     document.body.className = `level-${level + 1}`;
 }
