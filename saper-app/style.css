@@ -31,8 +31,8 @@ h1 {
 }
 
 #board div {
-    width: calc((100% - 20px) / var(--columns)); /* Adjust based on number of columns and border */
-    height: calc((100% - 20px) / var(--rows)); 
+    width: calc((100%) / var(--columns));
+    height: calc((100%) / var(--rows)); 
     border: 1px solid whitesmoke;
     font-size: calc(200px / var(--rows));
     display: flex;
@@ -40,6 +40,7 @@ h1 {
     align-items: center;
     font-weight: bold;
     cursor: pointer;
+    box-sizing: border-box; 
 }
 
 .square_clicked {
