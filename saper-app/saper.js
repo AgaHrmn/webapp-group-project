@@ -1,8 +1,8 @@
 // variables / zmienne
 
 const levelsList = [
-    { rows: 8, columns: 8, bombs: 5 },
-    { rows: 10, columns: 10, bombs: 8 },
+    { rows: 8, columns: 8, bombs: 3 },
+    { rows: 10, columns: 10, bombs: 3 },
     { rows: 12, columns: 12, bombs: 12 }
 ];
 let level = 0;
@@ -179,7 +179,6 @@ function checkSquare(r, c) {
 function gameOver(s) {
     if (bombs_location.includes(s.id) && s.innerText == "") {
         showBombs();
-        // playExplosionSound();
         showExplosionGif();
         playExplosionSound()
         game_over_flag = true;
